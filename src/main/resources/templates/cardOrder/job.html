@@ -30,6 +30,9 @@
 
                             <div class="field" th:classappend="${form.hasErrors('employerName')} ? 'error'">
                                 <label>お勤め先名</label>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('employerName')}">
+                                    <li th:text="${form.getErrors('employerName').value}"></li>
+                                </ul>
                                 <input type="text" name="employerName" th:value="${form.employerName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">

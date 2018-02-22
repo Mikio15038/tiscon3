@@ -5,111 +5,111 @@ import lombok.Data;
 import javax.validation.constraints.*;
 
 @Data
-public class    CardOrderForm extends FormBase {
+public class CardOrderForm extends FormBase {
 
     private static final long serialVersionUID = 1L;
 
-    @NotBlank
-    @Size(max = 60)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 60,message="文字数がオーバーしています。60文字以内で入力してください。")
     private String kanjiName;
 
-    @NotBlank
-    @Size(max = 90)
-    @Pattern(regexp = "^[ァ-ヶー 　]*$", message="カタカナで入力してください")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 90,message="文字数がオーバーしています。90文字以内で入力してください。")
+    @Pattern(regexp = "^[ァ-ヶー 　]*$",message="お名前をカタカナで入力してください。")
     private String kanaName;
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
 
-    @NotBlank
-    @Size(max = 120)
-    @Pattern(regexp = "^[a-zA-Z 　]*$")
+    @Size(max = 120,message="文字数がオーバーしています。120文字以内で入力してください。")
+    @Pattern(regexp = "^[a-zA-Z 　]*$",message="お名前をローマ字で入力してください。")
     private String alphabetName;
 
-    @NotBlank
-    @Size(max = 10)
-    @Pattern(regexp = "\\d{4}/\\d{1,2}/\\d{1,2}$")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 10,message="文字数がオーバーしています。10文字以内で入力してください。")
+    @Pattern(regexp = "\\d{4}/\\d{1,2}/\\d{1,2}$",message="生年月日の入力文字または形式が間違っています。")
     private String dateOfBirth;
 
-    @NotBlank
-    @Size(max = 6)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 6,message="文字数がオーバーしています。6文字以内で入力してください。")
     private String gender;
 
-    @NotBlank
-    @Size(max = 8)
-    @Pattern(regexp = "^[0-9]{3}-[0-9]{4}$")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 8,message="文字数がオーバーしています。8文字以内で入力してください。")
+    @Pattern(regexp = "^[0-9]{3}-[0-9]{4}$",message="郵便番号を数字で入力してください。")
     private String zipCode;
 
-    @NotBlank
-    @Size(max = 255)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String address;
 
-    @NotBlank
-    @Size(max = 13)
-    @Pattern(regexp = "^0[0-9]{1,3}-[0-9]{2,4}-[0-9]{4}$")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 13,message="文字数がオーバーしています。13文字以内で入力してください。")
+    @Pattern(regexp = "^0[0-9]{1,3}-[0-9]{2,4}-[0-9]{4}$",message="お客様の固定電話番号を数字で入力してください。")
     private String homePhoneNumber;
 
-    @Size(max = 13)
-    @Pattern(regexp = "^((070|080|090)-[0-9]{4}-[0-9]{4})?$")
+    @Size(max = 13,message="文字数がオーバーしています。13文字以内で入力してください。")
+    @Pattern(regexp = "^((070|080|090)-[0-9]{4}-[0-9]{4})?$",message="お客様の携帯電話番号を数字で入力してください。")
     private String mobilePhoneNumber;
 
-    @NotBlank
-    @Size(max = 255)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     @Email
     private String emailAddress;
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 20,message="文字数がオーバーしています。20文字以内で入力してください。")
     private String spouse;
 
-    @NotBlank
-    @Size(max = 20)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 20,message="文字数がオーバーしています。20文字以内で入力してください。")
     private String houseClassification;
 
-    @NotBlank
-    @Size(max = 6)
-    @Pattern(regexp = "[0-9]*")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 6,message="文字数がオーバーしています。6文字以内で入力してください。")
+    @Pattern(regexp = "[0-9]*",message="ローンなどの借入額を数字で入力してください。")
     private String debt;
 
-    @NotBlank
-    @Size(max = 120)
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 120,message="文字数がオーバーしています。120文字以内で入力してください。")
     private String job;
 
-    @NotBlank
-    @Size(max = 6)
-    @Pattern(regexp = "[0-9]*")
+    @NotBlank(message="必須項目ですので、ご入力またはご選択ください。")
+    @Size(max = 6,message="文字数がオーバーしています。6文字以内で入力してください。")
+    @Pattern(regexp = "[0-9]*",message="昨年の所得を数字で入力してください。")
     private String income;
 
-    @Size(max = 255)
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String employerName;
 
-    @Size(max = 8)
-    @Pattern(regexp = "^([0-9]{3}-[0-9]{4})?$")
+    @Size(max = 8,message="文字数がオーバーしています。8文字以内で入力してください。")
+    @Pattern(regexp = "^([0-9]{3}-[0-9]{4})?$",message="郵便番号を数字で入力してください。")
     private String employerZipCode;
 
-    @Size(max = 255)
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String employerAddress;
 
-    @Size(max = 13)
-    @Pattern(regexp = "^(0[0-9]{1,3}-[0-9]{2,4}-[0-9]{4})?$")
+    @Size(max = 13,message="文字数がオーバーしています。13文字以内で入力してください。")
+    @Pattern(regexp = "^(0[0-9]{1,3}-[0-9]{2,4}-[0-9]{4})?$",message="勤務先の電話番号を英字で入力してください。")
     private String employerPhoneNumber;
 
-    @Size(max = 255)
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String industryType;
 
-    @Size(max = 6)
-    @Pattern(regexp = "[0-9]*")
+    @Size(max = 6,message="文字数がオーバーしています。6文字以内で入力してください。")
+    @Pattern(regexp = "[0-9]*",message="貯金額を選択してください。")
     private String capital;
 
-    @Size(max = 255)
-    @Pattern(regexp = "[0-9]*")
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
+    @Pattern(regexp = "[0-9]*",message="お勤め先の規模を選択してください。")
     private String companySize;
 
-    @Size(max = 255)
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String position;
 
-    @Size(max = 255)
+    @Size(max = 255,message="文字数がオーバーしています。255文字以内で入力してください。")
     private String department;
 
-    @Size(max = 6)
-    @Pattern(regexp = "[0-9]*")
+    @Size(max = 6,message="文字数がオーバーしています。6文字以内で入力してください。")
+    @Pattern(regexp = "[0-9]*",message="勤続年数を数字で入力してください。")
     private String employeeLength;
 
 }
