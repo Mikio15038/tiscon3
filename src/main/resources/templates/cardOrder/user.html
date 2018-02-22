@@ -27,7 +27,7 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前（漢字）</label>
+                                <label>お名前（漢字）   入力例) 山田　太郎</label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">

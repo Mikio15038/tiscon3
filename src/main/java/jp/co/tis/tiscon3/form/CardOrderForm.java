@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.*;
 
 @Data
-public class CardOrderForm extends FormBase {
+public class    CardOrderForm extends FormBase {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,7 +15,7 @@ public class CardOrderForm extends FormBase {
 
     @NotBlank
     @Size(max = 90)
-    @Pattern(regexp = "^[ァ-ヶー 　]*$")
+    @Pattern(regexp = "^[ァ-ヶー 　]*$", message="カタカナで入力してください")
     private String kanaName;
 
     @NotBlank
