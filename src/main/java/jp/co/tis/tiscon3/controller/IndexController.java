@@ -10,7 +10,8 @@ import javax.inject.Inject;
  *
  * @author hirano
  */
-public class IndexController {
+public class
+IndexController {
 
     @Inject
     private TemplateEngine templateEngine;
