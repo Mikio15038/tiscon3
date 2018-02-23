@@ -8,7 +8,7 @@
 
     <script src="/assets/js/metrixir.client.js"></script>
     //住所自動
-    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset = "UTF-8"></script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -20,11 +20,6 @@
                         <h1 class="ui aligned header teal">お申込み情報</h1>
 
                         <form class="ui form" method="post" action="/cardOrder/user">
-
-                            <!-- /*エラーがあれば表示する*/ -->
-                            <ul class="ui red basic label" th:if="${form.hasErrors()}">
-                                <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.value}"></li>
-                            </ul>
 
                             <div class="ui horizontal divider">ご本人について</div>
 
@@ -61,32 +56,56 @@
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
                                 <label>生年月日　<font color = "blue">入力例）1996/2/22</font></label>
                                 <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('dateOfBirth')}">
+                                <li th:text="${form.getErrors('dateOfBirth')}"></li>
+                                </ul>
 
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <label>郵便番号　<font color = "blue">入力例）012-3456</font></label>
-                                <input type="text" name="zipCode" onkeyup="AjaxZip3.zip2addr(this,'','address','address');" th:value="${form.zipCode}"/>
+                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('zipCode')}">
+                                <li th:text="${form.getErrors('zipCode')}"></li>
+                                </ul>
+
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所（都道府県・市区町村・丁目・番地・マンション名など）</label>
                                 <input type="text" name="address" th:value="${form.address}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('address')}">
+                                <li th:text="${form.getErrors('address')}"></li>
+                                </ul>
+
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
                                 <label>自宅電話番号　<font color = "blue">入力例）03-0123-4567</font></label>
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('homePhoneNumber')}">
+                                    <li th:text="${form.getErrors('homePhoneNumber')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
                                 <label>携帯電話番号（任意）　<font color = "blue">入力例）090-0123-4567</font></label>
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('mobilePhoneNumber')}">
+                                    <li th:text="${form.getErrors('mobilePhoneNumber')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
                                 <label>メールアドレス</label>
                                 <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('emailAddress')}">
+                                    <li th:text="${form.getErrors('emailAddress')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
                                 <label>配偶者有無</label>
                                 <input type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>配偶者あり
                                 <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
+                                <ul class="ui red basic label" th:if="${form.hasErrors('spouse')}">
+                                    <li th:text="${form.getErrors('spouse')}"></li>
+                                </ul>
+
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
                                 <label>お住まい</label>
@@ -101,14 +120,23 @@
                                     <option value="寮下宿" th:checked="${form.houseClassification}=='寮下宿'"/>寮・下宿</option>
                                     <option value="その他" th:checked="${form.houseClassification}=='その他'"/>その他</option>
                                 </select>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('houseClassification')}">
+                                    <li th:text="${form.getErrors('houseClassification')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
                                 <label>ローン等のお借り入れ金額</label>
                                 <input type="text" class="number" name="debt" th:value="${form.debt}"/><span class="unit">万円</span>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('debt')}">
+                                    <li th:text="${form.getErrors('debt')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
                                 <label>昨年の所得</label>
                                 <input type="text" class="number" name="income" th:value="${form.income}"/><span class="unit">万円</span>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('income')}">
+                                    <li th:text="${form.getErrors('income')}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
                                 <label>ご職業</label>
@@ -125,6 +153,9 @@
                                     <option value="他有職" th:checked="${form.job}=='他有職'"/>その他 (有職）</option>
                                     <option value="他無職" th:checked="${form.job}=='他無職'"/>その他（無職）</option>
                                 </select>
+                                <ul class="ui red basic label" th:if="${form.hasErrors('job')}">
+                                    <li th:text="${form.getErrors('job')}"></li>
+                                </ul>
                             </div>
 
                             <!--/*"お勤め先"の入力値を引き回すための隠し項目*/-->
@@ -141,6 +172,7 @@
 
                             <button class="ui fluid teal button">次へ（お勤め先情報の入力）</button>
                         </form>
+
                     </div>
                 </div>
             </div>
