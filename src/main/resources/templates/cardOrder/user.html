@@ -8,7 +8,7 @@
 
     <script src="/assets/js/metrixir.client.js"></script>
     //住所自動
-    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset = "UTF-8"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <label>郵便番号　<font color = "blue">入力例）012-3456</font></label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <input type="text" name="zipCode" onkeyup="AjaxZip3.zip2addr(this,'','address','address');" th:value="${form.zipCode}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所（都道府県・市区町村・丁目・番地・マンション名など）</label>
