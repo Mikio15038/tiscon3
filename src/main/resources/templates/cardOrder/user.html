@@ -63,7 +63,7 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <label>郵便番号　<font color = "blue">入力例）012-3456</font></label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <input type="text" class="zipcode" name="zipCode" onkeyup="AjaxZip3.zip2addr(this,'','address','address');" th:value="${form.zipCode}"/>
                                 <ul class="ui red basic label" th:if="${form.hasErrors('zipCode')}">
                                 <li th:text="${form.getErrors('zipCode')}"></li>
                                 </ul>
